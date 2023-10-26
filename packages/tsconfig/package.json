@@ -1,15 +1,13 @@
 {
-  "name": "batin-sh",
-  "description": "My personal website",
+  "name": "@batin-sh/tsconfig",
+  "description": "TypeScript configuration files for Batin.sh",
   "version": "0.0.0",
   "private": true,
   "author": "Batin Evirgen <hi@batin.sh> (https://www.batin.sh)",
   "homepage": "https://www.batin.sh",
   "repository": {
     "type": "git",
-    "url": "https://www.github.com/Stradi/batin-sh.git"
-  },
-  "devDependencies": {
-    "@batin-sh/tsconfig": "workspace:*"
+    "url": "https://www.github.com/Stradi/batin-sh.git",
+    "directory": "packages/tsconfig"
   }
 }

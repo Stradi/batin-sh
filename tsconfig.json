@@ -1,0 +1,3 @@
+{
+  "extends": "@batin-sh/tsconfig/base.json"
+}
