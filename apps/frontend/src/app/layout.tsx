@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import Container from '@/components/container';
-
+import NavigationBar from '@/components/navigation-bar';
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -14,7 +14,25 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={inter.className}>
-        <Container>{children}</Container>
+        <Container>
+          <NavigationBar
+            items={[
+              {
+                label: 'About',
+                href: '/about',
+              },
+              {
+                label: 'Projects',
+                href: '/projects',
+              },
+              {
+                label: 'Blog',
+                href: '/blog',
+              },
+            ]}
+          />
+          <div className="mt-16">{children}</div>
+        </Container>
       </body>
     </html>
   );
