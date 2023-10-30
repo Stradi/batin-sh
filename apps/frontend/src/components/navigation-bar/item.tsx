@@ -12,8 +12,9 @@ export default function Item({ label, href, isActive }: Props) {
     <Link
       className={cn(
         'px-3 py-1 rounded-full transition duration-200',
-        'group-hover/all:hover:text-gray-950 group-hover/all:text-gray-400',
-        isActive && 'bg-neutral-300/50'
+        'group-hover/all:hover:text-neutral-950 group-hover/all:text-neutral-400',
+        'dark:group-hover/all:hover:text-white group-hover/all:text-neutral-500',
+        isActive && 'bg-neutral-300/50 dark:bg-neutral-600/50'
       )}
       href={href}
     >

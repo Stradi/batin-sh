@@ -31,8 +31,9 @@ export default function NavigationBar({ items }: Props) {
       as="nav"
       className={cn(
         'fixed inset-x-0 top-0 z-50 px-6 py-3 flex justify-between items-center',
-        'transition-all duration-300 ease-out',
-        shouldFloat && 'bg-white/75 backdrop-blur top-2 scale-[0.975] rounded-3xl ring-1 ring-black/10'
+        'transition-[background-color,top,transform,border-radius,box-shadow] duration-300 ease-out',
+        shouldFloat &&
+          'bg-white/75 dark:bg-neutral-800/75 backdrop-blur top-2 scale-[0.975] rounded-3xl ring-1 ring-black/10'
       )}
     >
       <Logo />
