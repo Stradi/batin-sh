@@ -1,12 +1,16 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type { ComponentPropsWithoutRef, ElementType } from 'react';
 import { cn } from '@/utils/tailwind';
 
-type Props = ComponentPropsWithoutRef<'div'>;
+type Props<T extends ElementType = 'div'> = ComponentPropsWithoutRef<'div'> & {
+  as?: T;
+};
 
-export default function Container({ children, className, ...props }: Props) {
+export default function Container<T extends ElementType = 'div'>({ as, children, className, ...props }: Props<T>) {
+  const Component = as || 'div';
+
   return (
-    <div className={cn('container mx-auto max-w-3xl px-4', className)} {...props}>
+    <Component className={cn('container mx-auto max-w-3xl px-4', className)} {...props}>
       {children}
-    </div>
+    </Component>
   );
 }
