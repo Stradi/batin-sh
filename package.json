@@ -9,6 +9,12 @@
     "type": "git",
     "url": "https://www.github.com/Stradi/batin-sh.git"
   },
+  "scripts": {
+    "dev": "pnpm --filter @batin-sh/frontend run dev",
+    "build": "pnpm --filter @batin-sh/frontend run build",
+    "start": "pnpm --filter @batin-sh/frontend run start",
+    "lint": "pnpm --filter @batin-sh/frontend run lint"
+  },
   "devDependencies": {
     "@batin-sh/tsconfig": "workspace:*"
   }
