@@ -4,6 +4,7 @@ import Container from '@/components/container';
 import NavigationBar from '@/components/navigation-bar';
 import './globals.css';
 import { cn } from '@/utils/tailwind';
+import BackgroundNoise from '@/components/background-noise';
 
 const inter = Inter({ subsets: ['latin'] });
 
@@ -15,6 +16,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="en">
       <body className={cn('bg-white dark:bg-neutral-900 text-black dark:text-neutral-300', inter.className)}>
+        <BackgroundNoise />
         <Container>
           <NavigationBar
             items={[
