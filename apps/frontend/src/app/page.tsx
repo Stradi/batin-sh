@@ -1,4 +1,3 @@
-import ProjectCard from './_components/project-card';
 import BadgeLink from '@/components/badge-link';
 
 export default function Home() {
@@ -13,25 +12,6 @@ export default function Home() {
         and learn <BadgeLink href="/about">more about me</BadgeLink>.
       </p>
       <br />
-      <div className="grid grid-cols-3 gap-2">
-        <ProjectCard
-          className="col-span-1"
-          href="#"
-          images={['https://picsum.photos/1080/1920#1']}
-          rotationAngle={-1}
-          title="UltimateComic"
-        />
-        <ProjectCard
-          className="col-span-2"
-          href="#"
-          images={[
-            'https://picsum.photos/1080/1920#2',
-            'https://picsum.photos/1080/1920#3',
-            'https://picsum.photos/1080/1920#4',
-          ]}
-          title="LeetChess"
-        />
-      </div>
     </main>
   );
 }
