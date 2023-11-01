@@ -2,7 +2,7 @@ import { useEffect } from 'react';
 import useLocalStorage from './use-local-storage';
 
 export default function useTheme() {
-  const [theme, setTheme] = useLocalStorage('theme', 'light');
+  const [theme, setTheme] = useLocalStorage('theme', 'dark');
 
   function toggleTheme() {
     setTheme(theme === 'light' ? 'dark' : 'light');
