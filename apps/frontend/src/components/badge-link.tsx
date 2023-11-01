@@ -10,8 +10,8 @@ export default function BadgeLink({ children, ...props }: Props) {
 
   return (
     <Link {...props}>
-      <Badge className="hover:bg-neutral-200 dark:hover:bg-neutral-700 dark:hover:border-neutral-600">
-        {children} {isExternal ? <ExternalLinkIcon className="w-3 h-3" strokeWidth={2.25} /> : null}
+      <Badge className="hover:bg-neutral-200 dark:hover:border-neutral-600 dark:hover:bg-neutral-700">
+        {children} {isExternal ? <ExternalLinkIcon className="h-3 w-3" strokeWidth={2.25} /> : null}
       </Badge>
     </Link>
   );

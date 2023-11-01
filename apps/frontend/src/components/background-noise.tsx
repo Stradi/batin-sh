@@ -7,7 +7,7 @@ export default function BackgroundNoise({ className, ...props }: Props) {
   return (
     <svg
       className={cn(
-        'pointer-events-none fixed z-50 inset-0 opacity-50 mix-blend-darken dark:opacity-70 dark:mix-blend-soft-light',
+        'pointer-events-none fixed inset-0 z-50 opacity-50 mix-blend-darken dark:opacity-70 dark:mix-blend-soft-light',
         className
       )}
       height="100%"

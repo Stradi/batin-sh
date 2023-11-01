@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body
         className={cn(
-          'bg-white dark:bg-neutral-900 text-black dark:text-neutral-300 font-sans min-h-screen',
+          'min-h-screen bg-white font-sans text-black dark:bg-neutral-900 dark:text-neutral-300',
           GeistSans.variable,
           GeistMono.variable
         )}

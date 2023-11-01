@@ -21,7 +21,7 @@ export default function DarkModeToggle() {
     <button onClick={toggleTheme} type="button">
       <AnimatePresence>
         <Component
-          className="w-5 h-5"
+          className="h-5 w-5"
           strokeWidth={1.75}
           initial={{
             translateX: -TranslationAmount,

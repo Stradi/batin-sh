@@ -6,7 +6,7 @@ type Props = Omit<ComponentPropsWithoutRef<typeof Link>, 'href'>;
 
 export default function Logo({ className, ...props }: Props) {
   return (
-    <Link className={cn('tracking-tight font-medium lowercase', className)} href="/" {...props}>
+    <Link className={cn('font-medium lowercase tracking-tight', className)} href="/" {...props}>
       be.
     </Link>
   );
