@@ -15,7 +15,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en">
       <body
         className={cn(
-          'bg-white dark:bg-neutral-900 text-black dark:text-neutral-300 font-sans',
+          'bg-white dark:bg-neutral-900 text-black dark:text-neutral-300 font-sans min-h-screen',
           GeistSans.variable,
           GeistMono.variable
         )}
@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
             ]}
           />
-          <div className="mt-16">{children}</div>
+          <div className="pt-16">{children}</div>
         </Container>
       </body>
     </html>
