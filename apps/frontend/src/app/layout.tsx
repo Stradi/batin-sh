@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { GeistSans } from 'geist/font';
+import { GeistSans, GeistMono } from 'geist/font';
 import Container from '@/components/container';
 import NavigationBar from '@/components/navigation-bar';
 import './globals.css';
@@ -13,7 +13,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={cn('bg-white dark:bg-neutral-900 text-black dark:text-neutral-300', GeistSans.className)}>
+      <body
+        className={cn(
+          'bg-white dark:bg-neutral-900 text-black dark:text-neutral-300 font-sans',
+          GeistSans.variable,
+          GeistMono.variable
+        )}
+      >
         <BackgroundNoise />
         <Container>
           <NavigationBar
