@@ -1,4 +1,6 @@
 import BadgeLink from '@/components/badge-link';
+import ProjectCard from '@/components/project-card';
+import Section from '@/components/section';
 
 export default function Home() {
   return (
@@ -12,6 +14,21 @@ export default function Home() {
         and learn <BadgeLink href="/about">more about me</BadgeLink>.
       </p>
       <br />
+      <Section
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2"
+        rightSide={<BadgeLink href="/projects">View all</BadgeLink>}
+        title="Featured Projects"
+      >
+        <ProjectCard name="Test Project" shortDescription="Some project description" year={2020} />
+        <ProjectCard
+          articleHref="#"
+          demoHref="#"
+          name="Another Project"
+          shortDescription="Another short project description"
+          sourceHref="#"
+          year={2023}
+        />
+      </Section>
     </main>
   );
 }
