@@ -28,7 +28,7 @@ export default function Page({ params }: Props) {
   const MDXContent = useMDXComponent(post.body.code);
 
   return (
-    <article className="mb-16 mt-8">
+    <article className="pb-16 pt-8">
       <header className="mb-8 space-y-1">
         <h1 className="text-4xl text-black dark:text-white">{post.title}</h1>
         <div className="flex items-center gap-2 text-neutral-500">
