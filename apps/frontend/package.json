@@ -35,6 +35,7 @@
   "devDependencies": {
     "@batin-sh/tsconfig": "workspace:^",
     "@next/eslint-plugin-next": "^14.0.0",
+    "@tailwindcss/typography": "^0.5.10",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
