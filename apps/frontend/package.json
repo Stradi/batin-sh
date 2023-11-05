@@ -18,10 +18,12 @@
   },
   "dependencies": {
     "clsx": "^2.0.0",
+    "contentlayer": "^0.3.4",
     "framer-motion": "^10.16.4",
     "geist": "^1.0.0",
     "lucide-react": "^0.290.0",
     "next": "14.0.0",
+    "next-contentlayer": "^0.3.4",
     "react": "^18",
     "react-dom": "^18",
     "tailwind-merge": "^1.14.0"
