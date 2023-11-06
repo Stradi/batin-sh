@@ -39,8 +39,8 @@ export default function Page({ params }: Props) {
   return (
     <article className="relative pb-16 pt-8">
       <header className="mb-8 space-y-1">
-        <h1 className="text-4xl text-black dark:text-white">{post.title}</h1>
-        <div className="flex items-center gap-2 text-neutral-500">
+        <h1 className="text-2xl text-black dark:text-white md:text-4xl">{post.title}</h1>
+        <div className="flex flex-wrap items-center gap-2 text-sm text-neutral-500 md:text-base">
           <p>
             <time dateTime={post.publishedAt}>{toRelativeDate(post.publishedAt)}</time>
           </p>
