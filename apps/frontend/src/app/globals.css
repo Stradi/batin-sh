@@ -5,9 +5,8 @@
 @import './syntax-highlighting.css';
 
 * {
-  scroll-behavior: smooth;
+  @apply scroll-smooth scroll-pt-24;
   scrollbar-gutter: stable;
-  scroll-padding-top: 6rem;
 }
 
 .heading-anchor {
