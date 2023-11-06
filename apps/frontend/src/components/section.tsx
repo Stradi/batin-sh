@@ -9,7 +9,7 @@ export default function Section({ title, rightSide, className, children, ...prop
   return (
     <section className="space-y-4" {...props}>
       <header className="relative flex items-center justify-between gap-2">
-        <h2 className="text-xl text-white">{title}</h2>
+        <h2 className="text-xl text-black dark:text-white">{title}</h2>
         <div className="h-1 grow rounded-sm bg-black/5 dark:bg-white/5" />
         {rightSide}
       </header>
