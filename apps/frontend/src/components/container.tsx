@@ -9,7 +9,7 @@ export default function Container<T extends ElementType = 'div'>({ as, children,
   const Component = as || 'div';
 
   return (
-    <Component className={cn('container mx-auto max-w-3xl px-4', className)} {...props}>
+    <Component className={cn('container mx-auto max-w-2xl px-4', className)} {...props}>
       {children}
     </Component>
   );
