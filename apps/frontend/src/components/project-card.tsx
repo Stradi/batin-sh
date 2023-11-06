@@ -1,19 +1,14 @@
 /* eslint-disable react/jsx-no-leaked-render -- looks ugly and since we are not using React Native, we can disable it safely */
 import { CodeIcon, NewspaperIcon, PlayIcon } from 'lucide-react';
+import type { Project } from 'contentlayer/generated';
 import BadgeLink from './badge-link';
 import { cn } from '@/utils/tailwind';
 
 type Props = {
-  year: number;
-  name: string;
-  shortDescription: string;
-
-  articleHref?: string;
-  demoHref?: string;
-  sourceHref?: string;
+  project: Project;
 };
 
-export default function ProjectCard({ year, name, shortDescription, articleHref, demoHref, sourceHref }: Props) {
+export default function ProjectCard({ project }: Props) {
   return (
     <article
       className={cn(
@@ -23,25 +18,25 @@ export default function ProjectCard({ year, name, shortDescription, articleHref,
       )}
     >
       <header>
-        <time className="font-mono text-sm text-amber-500">{year}</time>
-        <h3 className="font-mono text-lg text-black dark:text-white">{name}</h3>
+        <time className="font-mono text-sm text-amber-500">{new Date(project.publishedAt).getFullYear()}</time>
+        <h3 className="font-mono text-lg text-black dark:text-white">{project.name}</h3>
       </header>
       <main className="grow">
-        <p className="text-sm dark:text-neutral-400">{shortDescription}</p>
+        <p className="text-sm dark:text-neutral-400">{project.description}</p>
       </main>
       <footer className="flex flex-wrap gap-1">
-        {articleHref && (
-          <BadgeLink hideIcon href={articleHref}>
+        {project.articleHref && (
+          <BadgeLink hideIcon href={project.articleHref}>
             <NewspaperIcon className="h-4 w-4" /> Article
           </BadgeLink>
         )}
-        {demoHref && (
-          <BadgeLink hideIcon href={demoHref}>
+        {project.demoHref && (
+          <BadgeLink hideIcon href={project.demoHref}>
             <PlayIcon className="h-4 w-4" /> Demo
           </BadgeLink>
         )}
-        {sourceHref && (
-          <BadgeLink hideIcon href={sourceHref}>
+        {project.sourceHref && (
+          <BadgeLink hideIcon href={project.sourceHref}>
             <CodeIcon className="h-4 w-4" /> Source
           </BadgeLink>
         )}

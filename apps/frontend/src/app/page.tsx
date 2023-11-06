@@ -1,4 +1,4 @@
-import { allPosts } from 'contentlayer/generated';
+import { allPosts, allProjects } from 'contentlayer/generated';
 import BadgeLink from '@/components/badge-link';
 import PostCard from '@/components/post-card';
 import ProjectCard from '@/components/project-card';
@@ -21,15 +21,7 @@ export default function Home() {
         rightSide={<BadgeLink href="/projects">View all</BadgeLink>}
         title="Featured Projects"
       >
-        <ProjectCard name="Test Project" shortDescription="Some project description" year={2020} />
-        <ProjectCard
-          articleHref="#"
-          demoHref="#"
-          name="Another Project"
-          shortDescription="Another short project description"
-          sourceHref="#"
-          year={2023}
-        />
+        <ProjectCard project={allProjects[0]} />
       </Section>
       <br />
       <Section rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Featured Posts">

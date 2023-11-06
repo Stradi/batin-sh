@@ -4,6 +4,7 @@ import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import type { Options } from 'rehype-pretty-code';
 import rehypePrettyCode from 'rehype-pretty-code';
 import { Post } from './_content/defs/post';
+import { Project } from './_content/defs/project';
 
 const rehypePrettyCodeOptions: Partial<Options> = {
   theme: {
@@ -16,7 +17,7 @@ const rehypePrettyCodeOptions: Partial<Options> = {
 export default makeSource({
   disableImportAliasWarning: true,
   contentDirPath: './_content',
-  documentTypes: [Post],
+  documentTypes: [Post, Project],
   mdx: {
     // TODO: add Remark GFM plugin
     // https://github.com/contentlayerdev/contentlayer/issues/558
