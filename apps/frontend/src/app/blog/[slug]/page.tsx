@@ -2,7 +2,7 @@ import { notFound } from 'next/navigation';
 import { allPosts } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
 import TableOfContents from './_components/table-of-contents';
-import { toRelativeDate } from '@/utils/date';
+import { format } from '@/utils/date';
 
 export function generateStaticParams() {
   return allPosts.map((post) => ({
@@ -42,7 +42,7 @@ export default function Page({ params }: Props) {
         <h1 className="text-2xl text-black dark:text-white md:text-4xl">{post.title}</h1>
         <div className="flex flex-wrap items-center gap-2 text-sm text-neutral-500 md:text-base">
           <p>
-            <time dateTime={post.publishedAt}>{toRelativeDate(post.publishedAt)}</time>
+            <time dateTime={post.publishedAt}>{format(post.publishedAt)}</time>
           </p>
           &middot;
           <p>16,352 views</p>

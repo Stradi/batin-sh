@@ -22,3 +22,21 @@ export function toRelativeDate(date: string | Date) {
 
   return relativeFormatter.format(Math.round(duration), 'years');
 }
+
+export function format(date: string | Date, excludeYear = false) {
+  const formatter = new Intl.DateTimeFormat('en-us', {
+    weekday: undefined,
+    month: 'short',
+    day: 'numeric',
+    year: excludeYear ? undefined : 'numeric',
+  });
+
+  let dateObj: Date | undefined;
+  if (typeof date === 'string') {
+    dateObj = new Date(date);
+  } else {
+    dateObj = date;
+  }
+
+  return formatter.format(dateObj);
+}
