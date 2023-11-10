@@ -1,4 +1,5 @@
 import { defineDocumentType } from 'contentlayer/source-files';
+import { Post } from './post';
 
 export const Project = defineDocumentType(() => ({
   name: 'Project',
@@ -8,7 +9,7 @@ export const Project = defineDocumentType(() => ({
     name: { type: 'string', required: true },
     publishedAt: { type: 'date', required: true },
     description: { type: 'string', required: true },
-    articleHref: { type: 'string', required: false },
+    articleHref: { type: 'reference', of: Post, required: false },
     demoHref: { type: 'string', required: false },
     sourceHref: { type: 'string', required: false },
   },

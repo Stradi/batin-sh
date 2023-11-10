@@ -3,6 +3,7 @@ import BadgeLink from '@/components/badge-link';
 import PostCard from '@/components/post-card';
 import ProjectCard from '@/components/project-card';
 import Section from '@/components/section';
+import { normalizeProject } from '@/utils/contentlayer';
 
 export default function Home() {
   return (
@@ -21,7 +22,7 @@ export default function Home() {
         rightSide={<BadgeLink href="/projects">View all</BadgeLink>}
         title="Featured Projects"
       >
-        <ProjectCard project={allProjects[0]} />
+        <ProjectCard project={normalizeProject(allProjects[0])} />
       </Section>
       <br />
       <Section rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Featured Posts">

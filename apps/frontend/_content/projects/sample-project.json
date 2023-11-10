@@ -2,5 +2,5 @@
   "name": "Sample Project",
   "publishedAt": "11/5/2023",
   "description": "This is a sample project",
-  "articleHref": "https://www.google.com"
+  "articleHref": "posts/another-one.mdx"
 }
