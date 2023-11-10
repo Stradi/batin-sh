@@ -1,9 +1,8 @@
-import { allPosts, allProjects } from 'contentlayer/generated';
 import BadgeLink from '@/components/badge-link';
 import PostCard from '@/components/post-card';
 import ProjectCard from '@/components/project-card';
 import Section from '@/components/section';
-import { normalizeProject } from '@/utils/contentlayer';
+import { getPostBySlug, getProjectBySlug } from '@/utils/contentlayer';
 
 export default function Home() {
   return (
@@ -22,11 +21,12 @@ export default function Home() {
         rightSide={<BadgeLink href="/projects">View all</BadgeLink>}
         title="Featured Projects"
       >
-        <ProjectCard project={normalizeProject(allProjects[0])} />
+        <ProjectCard project={getProjectBySlug('ultimatecomic')} />
+        <ProjectCard project={getProjectBySlug('imgflow')} />
       </Section>
       <br />
       <Section rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Featured Posts">
-        <PostCard post={allPosts[0]} />
+        <PostCard post={getPostBySlug('sample-post')} />
       </Section>
     </main>
   );
