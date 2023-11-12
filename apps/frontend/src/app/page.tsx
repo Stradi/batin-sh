@@ -2,7 +2,7 @@ import BadgeLink from '@/components/badge-link';
 import PostCard from '@/components/post-card';
 import ProjectCard from '@/components/project-card';
 import Section from '@/components/section';
-import { getPostBySlug, getProjectBySlug } from '@/utils/contentlayer';
+import { getLatestPosts, getProjectBySlug } from '@/utils/contentlayer';
 
 export default function Home() {
   return (
@@ -25,8 +25,10 @@ export default function Home() {
         <ProjectCard project={getProjectBySlug('imgflow')} />
       </Section>
       <br />
-      <Section rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Featured Posts">
-        <PostCard post={getPostBySlug('sample-post')} />
+      <Section rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Latest Posts">
+        {getLatestPosts(5).map((post) => (
+          <PostCard key={post.slug} post={post} />
+        ))}
       </Section>
     </main>
   );

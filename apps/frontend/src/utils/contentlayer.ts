@@ -31,3 +31,7 @@ export function getPostBySlug(slug: string) {
 
   return post;
 }
+
+export function getLatestPosts(count: number, exclude?: string[]) {
+  return allPosts.filter((post) => !exclude?.includes(post.slug)).slice(0, count);
+}
