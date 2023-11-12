@@ -13,7 +13,7 @@ export default function Page() {
         .sort()
         .toReversed()
         .map((year) => (
-          <Section key={year} title={year.toString()}>
+          <Section className="space-y-1" key={year} title={year.toString()}>
             {postsGroupedByYear[year].map((post) => (
               <PostCard excludeYearInDate key={post.slug} post={post} />
             ))}

@@ -25,7 +25,7 @@ export default function Home() {
         <ProjectCard project={getProjectBySlug('imgflow')} />
       </Section>
       <br />
-      <Section rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Latest Posts">
+      <Section className="space-y-1" rightSide={<BadgeLink href="/blog">View all</BadgeLink>} title="Latest Posts">
         {getLatestPosts(5).map((post) => (
           <PostCard key={post.slug} post={post} />
         ))}
