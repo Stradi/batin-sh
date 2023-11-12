@@ -5,6 +5,7 @@ import NavigationBar from '@/components/navigation-bar';
 import './globals.css';
 import { cn } from '@/utils/tailwind';
 import BackgroundNoise from '@/components/background-noise';
+import Footer from '@/components/footer';
 
 export const metadata: Metadata = {
   title: 'Batin Evirgen',
@@ -21,7 +22,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         )}
       >
         <BackgroundNoise />
-        <Container>
+        <Container className="flex min-h-screen flex-col">
           <NavigationBar
             items={[
               {
@@ -38,7 +39,8 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               },
             ]}
           />
-          <div className="pt-16">{children}</div>
+          <div className="flex-1 pt-16">{children}</div>
+          <Footer />
         </Container>
       </body>
     </html>
