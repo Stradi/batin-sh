@@ -5,7 +5,6 @@ import { usePathname } from 'next/navigation';
 import Container from '../container';
 import Logo from '../logo';
 import DarkModeToggle from './dark-mode-toggle';
-import SoundEffectsToggle from './sound-effects-toggle';
 import Item from './item';
 import { cn } from '@/utils/tailwind';
 import useScrollPosition from '@/hooks/use-scroll-position';
