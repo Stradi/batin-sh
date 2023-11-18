@@ -26,6 +26,7 @@ export default makeSource({
     // https://github.com/contentlayerdev/contentlayer/issues/558
     rehypePlugins: [
       [rehypePrettyCode, rehypePrettyCodeOptions],
+      rehypeSlug,
       [
         rehypeAutolinkHeadings,
         {
@@ -35,7 +36,7 @@ export default makeSource({
           },
         },
       ],
-      rehypeSlug,
+      // @ts-expect-error -- we're not passing any options and ContentLayer accepts options as array
       rehypeKatex
     ],
     remarkPlugins: [
