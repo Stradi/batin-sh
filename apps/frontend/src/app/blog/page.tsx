@@ -1,7 +1,13 @@
 import { allPosts } from 'contentlayer/generated';
+import type { Metadata } from 'next';
 import PostCard from '@/components/post-card';
 import Section from '@/components/section';
 import { groupBy } from '@/utils/group-by';
+
+export const metadata: Metadata = {
+  title: "Blog",
+  description: "Thoughts and ideas.",
+}
 
 export default function Page() {
   const postsGroupedByYear = groupBy(allPosts, (post) => new Date(post.publishedAt).getFullYear().toString());

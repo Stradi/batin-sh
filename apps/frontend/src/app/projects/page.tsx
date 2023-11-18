@@ -1,6 +1,12 @@
 import { allProjects } from 'contentlayer/generated';
+import type { Metadata } from 'next';
 import ProjectCard from '@/components/project-card';
 import { normalizeProject } from '@/utils/contentlayer';
+
+export const metadata: Metadata = {
+  title: "Projects",
+  description: "Things I've built.",
+}
 
 export default function Page() {
   return (

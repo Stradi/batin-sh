@@ -1,13 +1,12 @@
 import { notFound } from 'next/navigation';
 import { allStaticPages } from 'contentlayer/generated';
 import { useMDXComponent } from 'next-contentlayer/hooks';
+import type { Metadata } from 'next';
 import { format } from '@/utils/date';
 
-export function generateStaticParams() {
-  return allStaticPages.map((page) => ({
-    slug: page.slug,
-  }));
-}
+type Props = {
+  params: { slug: string };
+};
 
 function getPage(slug: string) {
   const page = allStaticPages.find((p) => p.slug === slug);
@@ -18,9 +17,20 @@ function getPage(slug: string) {
   return page;
 }
 
-type Props = {
-  params: { slug: string };
-};
+export function generateStaticParams() {
+  return allStaticPages.map((page) => ({
+    slug: page.slug,
+  }));
+}
+
+export function generateMetadata({ params }: Props): Metadata {
+  const page = getPage(params.slug);
+
+  return {
+    title: page.title,
+    description: page.description,
+  }
+}
 
 export default function Page({ params }: Props) {
   const page = getPage(params.slug);
@@ -34,12 +44,12 @@ export default function Page({ params }: Props) {
           <p>
             <time dateTime={page.publishedAt}>{format(page.publishedAt)}</time>
           </p>
-          &middot;
+          {/* &middot;
           <p>16,352 views</p>
           &middot;
           <p>6,243 likes</p>
           &middot;
-          <p>12 comments</p>
+          <p>12 comments</p> */}
         </div>
       </header>
       <main className="prose prose-neutral dark:prose-invert prose-pre:my-[unset] max-w-none">

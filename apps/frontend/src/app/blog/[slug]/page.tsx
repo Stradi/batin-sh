@@ -4,11 +4,9 @@ import { useMDXComponent } from 'next-contentlayer/hooks';
 import TableOfContents from './_components/table-of-contents';
 import { format } from '@/utils/date';
 
-export function generateStaticParams() {
-  return allPosts.map((post) => ({
-    slug: post.slug,
-  }));
-}
+type Props = {
+  params: { slug: string };
+};
 
 function getPost(slug: string) {
   const post = allPosts.find((p) => p.slug === slug);
@@ -19,16 +17,27 @@ function getPost(slug: string) {
   return post;
 }
 
-type Props = {
-  params: { slug: string };
-};
-
 function toTableOfContentItem(item: { text: string; slug: string; heading: number }) {
   return {
     label: item.text,
     slug: item.slug,
     level: item.heading,
   };
+}
+
+export function generateStaticParams() {
+  return allPosts.map((post) => ({
+    slug: post.slug,
+  }));
+}
+
+export function generateMetadata({ params }: Props) {
+  const post = getPost(params.slug);
+
+  return {
+    title: post.title,
+    description: post.description,
+  }
 }
 
 // TODO: Stats

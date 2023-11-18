@@ -1,8 +1,14 @@
+import type { Metadata } from 'next';
 import BadgeLink from '@/components/badge-link';
 import PostCard from '@/components/post-card';
 import ProjectCard from '@/components/project-card';
 import Section from '@/components/section';
 import { getLatestPosts, getProjectBySlug } from '@/utils/contentlayer';
+
+export const metadata: Metadata = {
+  title: "Batin Evirgen",
+  description: "I'm a frontend developer and this is my digital garden. I currently work as React developer at coinpass. In here, you can find my thoughts, projects and learn more about me.",
+}
 
 export default function Home() {
   return (
