@@ -1,0 +1,113 @@
+---
+title: "Post Mortem: Cells"
+description: "Cells is one of my favorite generative art project. It made me learn so many new things. In this article I will try to explain how I created Cells."
+publishedAt: "10/2/2022"
+tags:
+  - 'generative art'
+  - 'post mortem'
+---
+
+Hi. In this article I want to talk about how I created my generative art piece Cells. By the way, I know the name is lame.
+
+If you want to check out generative art [here](https://www.fxhash.xyz/generative/8009) is the link for it.
+
+## General Overview
+It just bunch of cubes, you might say. But from my perspective it actually describes something like squeeze. Like squeezing bunch of stuff in a limited space.
+Different colors, different sizes, different properties but those stay in the same area. Reminds me the real world.
+
+Technically speaking, it is built on [Filament PBR Engine by Google](https://github.com/google/filament). I've read it's
+[design papers](https://google.github.io/filament/Filament.html) dozens of time and it has potential to render realistic scenes. I didn't need realistic rendering
+in this piece but I always try to learn new stuff.
+
+## Code
+The code is fairly simple. It is simple because I already created some kind of helper functions for Filament. I just needed to spawn bunch of cubes.
+
+Spawning cubes was easy at first but I made it more harder because I also wanted to test my math skills. My ultimate goal was to create 3D matrices with different
+sizes and different values.
+
+$$
+\begin{pmatrix}
+  a & b & c \\
+  d & e & f \\
+  g & h & i
+\end{pmatrix}
+$$
+
+The matrix above represents a slice of 3D matrix. Each value corresponds the size of that cube.
+
+![Example output](./cells-1.png)
+
+For example let's write the first slice (from left) of above image.
+
+$$
+M_1 = \begin{pmatrix}
+  0 & 0 & 1 \\
+  1 & 1 & 0 \\
+  1 & 0 & 1
+\end{pmatrix}
+$$
+
+0's in the matrix represents that there is no cubes in that place. 1's are (you probably guessed it) there is a cube with size of 1.
+
+![Another output](./cells-2.png)
+
+For above image (sorry for bands in the image, Gatsby's fault), the first slice of matrix would look like this:
+
+$$
+M_1 = \begin{pmatrix}
+  1 & 2 & 2 & 1 & 1 & 1 \\
+  1 & 2 & 2 & 0 & 0 & 0 \\
+  1 & 1 & 1 & 1 & 0 & 0 \\
+  1 & 0 & 0 & 1 & 2 & 2 \\
+  1 & 0 & 0 & 1 & 2 & 2 \\
+  1 & 1 & 0 & 0 & 0 & 1
+\end{pmatrix}
+$$
+
+2's in the matrix represents that there are a cube with size of 2. I guess you understand what the whole picture looks like.
+
+Now let's move on to generating these matrices.
+
+### Generating Matrix
+I don't know about you but in all of my generative art projects I always start with generating the data. In this case, the data is matrix. Then using that data I can
+create anything, try different things with the same data.
+
+To represent matrix in code, I've used 3-dimensional array. I've also created some utility functions for checking if given value of matrix is empty or not,
+returning occupying spots for a given value and for placing a value in a spot.
+
+With those functions and by looping through matrix, I've placed different numbers (cubes) in matrix. Placing part is actually very similar to brute-force. I've started
+cube's size with maximum value (depends on size of the matrix) and iteratively decreased it's size until it 'fits' the spot, essentially I squeezed that cube in a spot.
+
+### Visualization
+After placing a all cubes, I've started to visualize the data. Firstly I experimented on adding color to the cubes. For doing that, I've created some color palettes
+and selected random one for each cube, fairly easy.
+
+If you've noticed it, some cubes have bloom (it is really bloom). For adding bloom, I found big cubes (big numbers) in matrix and added emission to material of that cube.
+The color of emission is depends on the color palette. Finding the great vibrant color from a RGB palette was hard. I've experimented with different values of color.
+
+In the end, I've used color with highest chroma in a given palette. Colors with higher chroma generally more vibrant so I used it.
+
+Now let's move onto bloom part. Emissive cubes have bloom, that's okay. But normal bloom looked kinda lame.
+
+![Output with default bloom](./cells-3.png)
+
+I wanted something different. I wanted something like god rays that comes from emissive cube. So, I dig into Filament's [source code](https://github.com/google/filament/blob/df6a100fcba66d9c99328a49d41fe3adecc0165d/filament/include/filament/Options.h#L132)
+(I don't know why). But glad I looked into source code. Because I saw something like `anamorphism`.
+
+I've searched it in Google and find out that it is something like loop. Then I changed anamorphism setting in bloom's options to 1, and nothing happened.
+Then I changed it 10000 and saw that it spreads the bloom horizontally. Changing it to 0 makes spread direction vertical.
+
+> Note from future:
+  While coding this project, there was not a comment about anamorphism's limits (1/32 to 32). That's why I made it 0 and 10000.
+
+It's not like god rays but I think it is great effect.
+
+After adding little post processing I've decided that it's done.
+
+## Ending
+So, that's it. That's how I made Cells. It was a fun project, I've learned about Filament (awesome engine), color theory, anamorphism, WASM and more.
+
+I will definitely use Filament in my future projects, it's a bit hard and documentation is insufficent. If you want to use Filament in your projects, get ready to
+look into source code.
+
+Until next time and thanks for reading.

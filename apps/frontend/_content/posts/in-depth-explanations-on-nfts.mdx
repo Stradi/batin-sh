@@ -1,0 +1,178 @@
+---
+title: "In-depth explanation on NFTs"
+description: "Since last month I’ve read so many blog posts and articles written about NFT. The problem is, everyone is writing the same thing. No one goes really in-depth on NFTs, no one writes how it’s works and..."
+publishedAt: "6/4/2021"
+tags:
+  - 'blockchain'
+  - 'ethereum'
+  - 'nft'
+---
+
+There are so many articles about NFTs, but the problem is, everyone is writing the same thing. No one goes really in-depth on NFTs, no one writes how it works,
+and how to create one, etc.
+
+What they write is something like this.
+
+> NFT is non-fungible token. It's unique and can only one person owns it. It's like trading card etc.
+
+That doesn't explain it very well. Instead, in this article, I want to explain it **in-depth**. I am going to start with a little bit of foundation and then
+explain how to create one.
+
+The foundation is really important for understanding NFTs. Because of this, first we have to understand what the Ethereum Blockchain is.
+
+## What is Ethereum
+![Landscape Ethereum logo](./ethereum-logo.png)
+Ethereum is an open-source blockchain software.
+
+You can think of a blockchain as computers connected to each other and stores the same database in every computer.
+
+When you want to add data to the database in the blockchain you have to make a **transaction**. You create a transaction and send it to the blockchain
+(to the computers). To make that transaction be part of the blockchain, you have to pay some fees. This is called a **"Gas Fee"**. After completing the transaction,
+all the connected computers verify that transaction data and add it to the blockchain.
+
+There is a single computer called the **Ethereum Virtual Machine (EVM)** in the Ethereum network. Everyone who contributes to the Ethereum network keeps a copy
+of the state of that EVM. You can think of EVM as Java Virtual Machine (JVM) but in a blockchain. You can run your own applications on the EVM. So there should
+be a programming language for EVM, right?
+
+Yes, there are multiple programming languages that compile into byte-code that EVM can understand. The most popular one is the [Solidity Language](https://soliditylang.org/).
+The programs you write for EVM are called **Smart Contracts**.
+
+## What is Smart Contract
+A smart contract is an application that runs on the blockchain (actually more than that). Every smart contract has some **functions** and some **state**. Also,
+these smart contracts have an **address** like your wallet address.
+
+So if these smart contracts have addresses, they must have a balance, right? Yes. Smart contracts have a balance and they can send transactions to the
+blockchain. The most important thing you have to understand is, smart contracts are not controlled by some user. They just run what is inside of the code.
+
+For example, you can write a simple smart contract that increments some value every time a function is called. But how do we call its function? We can call
+their functions with, you probably guessed it, transactions.
+
+Writing smart contracts is not that hard, especially if you have a programming background. But deploying a smart contract to blockchain costs a bit much,
+I will explain it later.
+
+## Gas and Gas Fee
+![Gas image](./gas.png)
+Every transaction made in the blockchain costs Gas - making transactions, deploying smart contracts, reading a value, the addition of two values, etc.
+
+Gas is computational power required to validate and process your transactions. But who validates your transactions? **Miners**.
+
+Miners uses some special hardware and process transactions in blocks. In exchange, miners earn **block rewards** and **gas fees**.
+
+That means the gas fee you pay will go to the miners that secure the blockchain and processes your orders.
+
+Also, different kinds of actions cost different gas counts. For example, sending ETH to an account is cheaper than deploying a smart contract or doing
+complex stuff inside of smart contracts.
+
+The cost of 1 Gas is called **gas price**. If a gas price is 1 ETH (not real), and you want to do a transaction which costs 10 Gas, you have to pay 10ETH.
+
+Gas prices are denominated in "**gwei**" unit which is **0.000000001ETH**.
+
+Gas prices change frequently. Gas prices are **not** being set by developers or miners. It's all about **transaction volume**.
+
+If many users requesting to validate a transaction, gas prices will be high because miners are going to select who pays more and the average gas price of
+some of the latest transactions will be the new gas price. In that way, gas prices will be higher than the previous one. It depends on the **number of transactions**.
+
+Standart transactions cost **21,000 Gas**. For example, you want to send 1ETH to your friend. You have to pay 21,000*Gas Price + 1ETH.
+
+You can find the current gas price [here](https://ethgasstation.info/).
+
+---
+
+Wait. Isn't this article going to explain what NFT is? Yes it is. We are finished with the basic foundation that we need to understand NFTs better.
+
+## Let's dive into NFTs
+Do you still remember what a smart contract is, you have to because an **NFT is simply a smart contract** that applies **ERC-721** or **ERC-1151** specifications.
+Don't let ERC-721 and ERC-1151 things scare you because it's actually very simple.
+
+In this article, we are going to cover ERC-721 specification since most NFTs are made with this specification in mind.
+
+So, a smart contract is code that runs on the blockchain and it has some functions and state.
+
+Let's create an NFT. I will not code an NFT but the process is the same.
+
+I am going to use some kittens for this, so our token will be a **Kitten**.
+
+> No animals were harmed while writing this.
+
+Our kittens should have some attributes, for example eye color, fur color, pattern, and also needs an **ID**, name, and able to breed with other cats.
+That means our NFT should include a Kitten object that includes all attributes we want. Also we should be able to create new kittens (0th Generation)
+and this creation process is called **minting**. Lastly, we should be able to **transfer** our kittens to another owner :(
+
+In this case, our token is Kitten. It has an **ID (TokenID)**, name, and attributes. Luckily for us, ERC-721 specification includes TokenID and transfer functions.
+Next, we have to create some **initial kitties**, for example 100, and we should have limit of how many cats can be created totally, let's say 50,000.
+
+Creating a kitten for Generation 0 is simple because we have a function in smart contract that creates random kitten. Generation 0 kittens will be ancestor
+of all next generation kittens. Let's say we created 100 Generation 0 kittens and added to a list that contains all of the kittens that are created or born.
+
+In this kitty case, our functions are **BreedKitten**, **CreateKitten**, **TransferKittenTo**, **SellKitten**. Our state is the list that **stores all kitties**.
+
+But **where** is my kittens?
+
+When we created the first 100 kittens, we created those kittens (tokens) in the **owner account**. The owner account is generally the account **that deployed that
+smart contract**. Simply, owner account is your own Ethereum address. That means if I deploy this smart contract to blockchain network, I will be owner and 100
+kittens are going to be mine, YAY! :)
+
+Now, I have 100 tokens for kittens. What can I do with those? I can breed them or I can transfer them to another owner for free, or I can sell them.
+
+---
+
+So yes, this is an NFT. It can be an object, kitten, painting, sound, imaginary person, etc. All of the things I've listed above are called tokens. Initially,
+the tokens I created are mine and I can sell those tokens or transfer them to my friend.
+
+Most importantly, every token is different from each other. This is why they are expensive and valuable.
+
+### How much does it costs to create NFT?
+Making changes in the blockchain is getting more expensive every day. It's because many more people are learning blockchain technology and using it.
+
+Let's say, we created our smart contract and compiled it. We have a code that only EVM can understand. Sending this code to blockchain costs a bit much.
+
+Do you remember what I said?
+
+> Every transaction costs gas (except for one or two if I remember correctly)
+
+To deploy a smart contract to blockchain uses some gas. First fee we need to pay is, **transaction fee**. This costs 21,000 gas. The second fee is the cost of
+**CREATE operation**.
+
+Create an operation simply creates an address for our smart contract. When we are deploying our smart contract we need to access it, so it needs an address.
+So create operation creates an account, which has balance etc, and belongs to your smart contract.
+
+Also your smart contract does stuff on blockchain, right? We have to include those as well. Every byte of your smart contract costs 4 gas and every operation
+you've made in your smart contract costs some gas.
+
+So in total, deploying a smart contract will cost minimum (you can fill Gas Price with current Gas Price from here);
+
+(32000 + 21000 + Smart Contract) Gas * Gas Price = ??? $
+
+**Optimization** is really important when it comes to deploy a smart contract. There are some tips available in [Solidity documentation](https://docs.soliditylang.org).
+
+After deployed it and created initial NFTs, you can put these tokens to sale in marketplaces or create your own website and use your website as marketplace.
+
+---
+
+"Wait, I can create my own NFTs for free on blabla.com?"
+
+Yes you also can **create NFTs for free**. But the thing is, when you create an NFT for free, you are not actually creating it. **It gets created when someone buys it**.
+
+If you have individual pieces you want to sell, creating for free is the best choice. There are really popular marketplaces that let you create NFT and sell.
+
+If you want to create **limited collection of punks** or add a functionality to **breed your cats**, you probably want to code your own smart contract.
+
+---
+
+**TL;DR**: NFT is a smart contract that runs on blockchain and does stuff on there.
+
+Thank you for reading this far :)
+
+If you want to go more in-depth you can check out these resources:
+
+* [Ethereum's official documentation](https://ethereum.org/en/developers/docs/)
+* [Solidity programming language](https://soliditylang.org/)
+* [Current Gas prices](https://ethgasstation.info/)
+
+And some popular NFT collections and games (made with smart sontracts):
+
+* [CryptoKitties](https://www.cryptokitties.co/)
+* [CryptoPunks](https://larvalabs.com/cryptopunks)
+* [MoonCatRescue](https://mooncatrescue.com/)
+* [Sorare](https://sorare.com/)
+* [NBA Top Shot](https://nbatopshot.com/)
