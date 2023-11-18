@@ -2,13 +2,13 @@
 
 import { type ComponentPropsWithoutRef } from 'react';
 import { usePathname } from 'next/navigation';
-import useScrollPosition from '@/hooks/use-scroll-position';
-import { cn } from '@/utils/tailwind';
 import Container from '../container';
 import Logo from '../logo';
 import DarkModeToggle from './dark-mode-toggle';
 import SoundEffectsToggle from './sound-effects-toggle';
 import Item from './item';
+import { cn } from '@/utils/tailwind';
+import useScrollPosition from '@/hooks/use-scroll-position';
 
 type Item = {
   label: string;
@@ -33,7 +33,7 @@ export default function NavigationBar({ items }: Props) {
         'fixed inset-x-0 top-0 z-40 flex items-center justify-between px-6 py-3',
         'transition-[background-color,top,transform,border-radius,box-shadow] duration-300 ease-out',
         shouldFloat &&
-          'top-2 scale-[0.975] rounded-3xl bg-white/75 ring-1 ring-black/10 backdrop-blur dark:bg-neutral-800/75'
+        'top-2 scale-[0.975] rounded-3xl bg-white/75 ring-1 ring-black/10 backdrop-blur dark:bg-neutral-800/75'
       )}
     >
       <Logo />
@@ -44,7 +44,7 @@ export default function NavigationBar({ items }: Props) {
       </ul>
       <div className="flex gap-2">
         <DarkModeToggle />
-        <SoundEffectsToggle />
+        {/* <SoundEffectsToggle /> */}
       </div>
     </Container>
   );
