@@ -44,12 +44,12 @@ export default function Page({ params }: Props) {
           <p>
             <time dateTime={post.publishedAt}>{format(post.publishedAt)}</time>
           </p>
-          &middot;
+          {/* &middot;
           <p>16,352 views</p>
           &middot;
           <p>6,243 likes</p>
           &middot;
-          <p>12 comments</p>
+          <p>12 comments</p> */}
         </div>
       </header>
       <div className="mb-4 rounded-xl bg-neutral-200 p-4 dark:bg-neutral-800 md:absolute md:-right-8 md:mb-0 md:h-full md:min-h-screen md:translate-x-full md:bg-[unset] md:p-0 md:dark:bg-[unset]">
