@@ -3,6 +3,8 @@ import rehypeSlug from 'rehype-slug';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import type { Options } from 'rehype-pretty-code';
 import rehypePrettyCode from 'rehype-pretty-code';
+import remarkMath from 'remark-math';
+import rehypeKatex from 'rehype-katex';
 import { Post } from './_content/defs/post';
 import { Project } from './_content/defs/project';
 import { StaticPage } from './_content/defs/static-page';
@@ -24,7 +26,6 @@ export default makeSource({
     // https://github.com/contentlayerdev/contentlayer/issues/558
     rehypePlugins: [
       [rehypePrettyCode, rehypePrettyCodeOptions],
-      [rehypeSlug],
       [
         rehypeAutolinkHeadings,
         {
@@ -34,6 +35,11 @@ export default makeSource({
           },
         },
       ],
+      rehypeSlug,
+      rehypeKatex
     ],
+    remarkPlugins: [
+      remarkMath
+    ]
   },
 });

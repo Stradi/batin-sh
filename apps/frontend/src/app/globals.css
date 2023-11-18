@@ -2,6 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
+@import 'katex/dist/katex.css';
 @import './syntax-highlighting.css';
 
 * {
@@ -12,4 +13,8 @@
 .heading-anchor {
   @apply hover:before:opacity-100 no-underline;
   @apply before:transition before:duration-100 before:text-neutral-500 before:-ml-5 before:absolute before:content-['#'] before:opacity-0;
+}
+
+.katex {
+  @apply dark:text-white text-black font-medium;
 }
