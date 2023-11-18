@@ -33,5 +33,5 @@ export function getPostBySlug(slug: string) {
 }
 
 export function getLatestPosts(count: number, exclude?: string[]) {
-  return allPosts.filter((post) => !exclude?.includes(post.slug)).slice(0, count);
+  return allPosts.filter((post) => !exclude?.includes(post.slug)).slice(0, count).sort((a, b) => b.publishedAt.localeCompare(a.publishedAt));
 }
