@@ -1,7 +1,7 @@
 ---
-title: "In-depth explanation on NFTs"
-description: "Since last month I’ve read so many blog posts and articles written about NFT. The problem is, everyone is writing the same thing. No one goes really in-depth on NFTs, no one writes how it’s works and..."
-publishedAt: "6/4/2021"
+title: 'In-depth explanation on NFTs'
+description: 'Since last month I’ve read so many blog posts and articles written about NFT. The problem is, everyone is writing the same thing. No one goes really in-depth on NFTs, no one writes how it’s works and...'
+publishedAt: '6/4/2021'
 tags:
   - 'blockchain'
   - 'ethereum'
@@ -21,7 +21,8 @@ explain how to create one.
 The foundation is really important for understanding NFTs. Because of this, first we have to understand what the Ethereum Blockchain is.
 
 ## What is Ethereum
-![Landscape Ethereum logo](./ethereum-logo.png)
+
+![Landscape Ethereum logo](../ethereum-logo.png)
 Ethereum is an open-source blockchain software.
 
 You can think of a blockchain as computers connected to each other and stores the same database in every computer.
@@ -38,6 +39,7 @@ Yes, there are multiple programming languages that compile into byte-code that E
 The programs you write for EVM are called **Smart Contracts**.
 
 ## What is Smart Contract
+
 A smart contract is an application that runs on the blockchain (actually more than that). Every smart contract has some **functions** and some **state**. Also,
 these smart contracts have an **address** like your wallet address.
 
@@ -51,7 +53,8 @@ Writing smart contracts is not that hard, especially if you have a programming b
 I will explain it later.
 
 ## Gas and Gas Fee
-![Gas image](./gas.png)
+
+![Gas image](../gas.png)
 Every transaction made in the blockchain costs Gas - making transactions, deploying smart contracts, reading a value, the addition of two values, etc.
 
 Gas is computational power required to validate and process your transactions. But who validates your transactions? **Miners**.
@@ -72,7 +75,7 @@ Gas prices change frequently. Gas prices are **not** being set by developers or 
 If many users requesting to validate a transaction, gas prices will be high because miners are going to select who pays more and the average gas price of
 some of the latest transactions will be the new gas price. In that way, gas prices will be higher than the previous one. It depends on the **number of transactions**.
 
-Standart transactions cost **21,000 Gas**. For example, you want to send 1ETH to your friend. You have to pay 21,000*Gas Price + 1ETH.
+Standart transactions cost **21,000 Gas**. For example, you want to send 1ETH to your friend. You have to pay 21,000\*Gas Price + 1ETH.
 
 You can find the current gas price [here](https://ethgasstation.info/).
 
@@ -81,6 +84,7 @@ You can find the current gas price [here](https://ethgasstation.info/).
 Wait. Isn't this article going to explain what NFT is? Yes it is. We are finished with the basic foundation that we need to understand NFTs better.
 
 ## Let's dive into NFTs
+
 Do you still remember what a smart contract is, you have to because an **NFT is simply a smart contract** that applies **ERC-721** or **ERC-1151** specifications.
 Don't let ERC-721 and ERC-1151 things scare you because it's actually very simple.
 
@@ -122,6 +126,7 @@ the tokens I created are mine and I can sell those tokens or transfer them to my
 Most importantly, every token is different from each other. This is why they are expensive and valuable.
 
 ### How much does it costs to create NFT?
+
 Making changes in the blockchain is getting more expensive every day. It's because many more people are learning blockchain technology and using it.
 
 Let's say, we created our smart contract and compiled it. We have a code that only EVM can understand. Sending this code to blockchain costs a bit much.
@@ -141,7 +146,7 @@ you've made in your smart contract costs some gas.
 
 So in total, deploying a smart contract will cost minimum (you can fill Gas Price with current Gas Price from here);
 
-(32000 + 21000 + Smart Contract) Gas * Gas Price = ??? $
+(32000 + 21000 + Smart Contract) Gas \* Gas Price = ??? $
 
 **Optimization** is really important when it comes to deploy a smart contract. There are some tips available in [Solidity documentation](https://docs.soliditylang.org).
 
@@ -165,14 +170,14 @@ Thank you for reading this far :)
 
 If you want to go more in-depth you can check out these resources:
 
-* [Ethereum's official documentation](https://ethereum.org/en/developers/docs/)
-* [Solidity programming language](https://soliditylang.org/)
-* [Current Gas prices](https://ethgasstation.info/)
+- [Ethereum's official documentation](https://ethereum.org/en/developers/docs/)
+- [Solidity programming language](https://soliditylang.org/)
+- [Current Gas prices](https://ethgasstation.info/)
 
 And some popular NFT collections and games (made with smart sontracts):
 
-* [CryptoKitties](https://www.cryptokitties.co/)
-* [CryptoPunks](https://larvalabs.com/cryptopunks)
-* [MoonCatRescue](https://mooncatrescue.com/)
-* [Sorare](https://sorare.com/)
-* [NBA Top Shot](https://nbatopshot.com/)
+- [CryptoKitties](https://www.cryptokitties.co/)
+- [CryptoPunks](https://larvalabs.com/cryptopunks)
+- [MoonCatRescue](https://mooncatrescue.com/)
+- [Sorare](https://sorare.com/)
+- [NBA Top Shot](https://nbatopshot.com/)

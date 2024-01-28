@@ -1,7 +1,7 @@
 ---
-title: "Introduction to Generative Art"
+title: 'Introduction to Generative Art'
 description: "Generative art is combining code and art. At least this is how I define it. It's basically converting bunch of rules into code and leave the rest to the computer."
-publishedAt: "12/2/2022"
+publishedAt: '12/2/2022'
 tags:
   - 'generative art'
 ---
@@ -11,10 +11,12 @@ I started creating generative art in late 2021. But I can't stop doing it. It's 
 In this post, I will try to explain what generative art is and how I do it. Without further ado let's start by defining generative art.
 
 ## What is Generative Art
+
 Basically, generative art is combining code and art. At least this is how I define it. It's made up of rules, a bunch of rules to be exact. Then you have to transcribe
 those rules to code and the computer does the rest.
 
 ## Creating Generative Art
+
 First of all, creating generative art requires a thought process and some inspiration. You have to imagine what you want to do. I always start with finding some
 references and images that can be created using code. Then I try to find what rules I can extract from that image. These rules generally have some parameters I can tweak.
 These parameters are what makes a generative art. Changing parameters sometimes yields so different images and sometimes yields little differences. I will explain
@@ -34,22 +36,23 @@ going offscreen we have to set some limits. While determining the square's posit
 If you are new to this, don't push your limits. I mean, don't start with something that looks hard (like creating 3D face mesh from scratch?).
 I'm speaking from experience, please don't. Because I made that mistake and I, don't want to say wasted but, wasted my two months for something like this.
 
-![The Great Wave of Kanagawa](./the-great-wave-of-kanagawa.jpg)
+![The Great Wave of Kanagawa](../the-great-wave-of-kanagawa.jpg)
 
 Then I gave up and created this piece, my first generative art, Landscapes.
 
-![Landscapes](./landscapes-01.png)
+![Landscapes](../landscapes-01.png)
 
 I know it looks like a child drawn (especially the clouds) but I still like it. I also put so much time into this piece because at that time generative art was also new to me.
 
 Anyways, this is my process of generating generative art. Some people may do it differently but in the end, we are all creating generative art.
 
 ### Rules and Parameters
+
 Rules and parameters are essential when creating generative art. You may ask, what is a rule? Let me explain.
 
 A Rule is a pattern, at least how I imagine it. Let's try to extract some rules from my generative art Trails.
 
-![Trails](./trails-01.png)
+![Trails](../trails-01.png)
 
 I want to give some context before analyzing the image. When I started coding this generative art, I thought about a circle leaving trails while it moves. And I
 wanted to see the trails of other circles. There is no other circle but I wanted to express that idea by drawing saturated lines.
@@ -67,10 +70,10 @@ These things could look like not a rule to you but essentially we found out how 
 
 1. Initialize a flow field
 2. Draw background
-    1. Draw saturated lines (background)
+   1. Draw saturated lines (background)
 3. Draw foreground
-    1. Draw an inner circle
-    2. Draw trails of the inner circle
+   1. Draw an inner circle
+   2. Draw trails of the inner circle
 4. Mask it
 
 In the end, rules help us to draw a roadmap. Let's move on to parameters.
@@ -83,6 +86,7 @@ lines. Again, foreground trails would not stand out.
 So, tweaking those parameters and finding the sweet spot can take up some time but it definitely will pay off.
 
 ## Conclusion
+
 So there you have it. I tried my best to explain generative art and my thought process to you.
 
 Hopefully, this article helped you understand generative art and thought process. I will try to continue writing posts about generative art, techniques and

@@ -10,6 +10,7 @@ tags:
 A flow field is a grid of vectors. It essentially defines a path. And it is one of my favorite techniques for creating generative art.
 
 ## What is Flow (Vector) Field
+
 A vector field is a function $V$ that assigns each point $(x,y)$ to the vector $\vec{S}$. In physics, it helps to visualize and understand gravitation
 and electromagnetism. But in this article, we are not interested in those.
 
@@ -25,6 +26,7 @@ Parametric flow fields are fields that can be described using mathematical funct
 One and probably the most popular example could be a noise field. We will discuss (and create) both flow fields later on.
 
 ## Creating Flow Field
+
 Creating a flow field is the same for all programming languages. I am using TypeScript and the p5.js library in this article. You can use your preferred programming language
 and the library. It doesn't matter as long as you understand the logic behind it.
 
@@ -43,6 +45,7 @@ For example, calling `map(0.5, 0, 1, 0, 360)` returns `180`. It changes the valu
 Now, we have all the background for creating a flow field. Let's start by creating parametric flow fields.
 
 ### Parametric Flow Field
+
 So, we need a function. For the sake of simplicity, I am going to use my beloved $sin$ function. To be exact, I am going to use $V(x,y)=sin(x)+cos(y)$. If you noticed,
 this function is not returning a vector, it returns a scalar. That is because we want to create a vector from this function by using `map`.
 
@@ -50,7 +53,7 @@ Let's start coding by creating a JavaScript file and creating a flow field funct
 
 ```ts
 function f(x, y) {
-  return sin(x)+cos(y);
+  return sin(x) + cos(y);
 }
 ```
 
@@ -59,7 +62,7 @@ If we divide this range by 2, then we would have $[-1,1]$ which is great for our
 
 ```ts
 function f(x, y) {
-  return (sin(x)+cos(y)) * 0.5;
+  return (sin(x) + cos(y)) * 0.5;
 }
 ```
 
@@ -67,7 +70,7 @@ Since we want to convert this number to angle, we also need to map this result t
 
 ```ts
 function f(x, y) {
-  const value = (sin(x)+cos(y)) * 0.5;
+  const value = (sin(x) + cos(y)) * 0.5;
   return map(value, -1, 1, 0, TWO_PI);
 }
 ```
@@ -83,9 +86,7 @@ function setup() {
   noLoop();
 }
 
-function draw() {
-
-}
+function draw() {}
 ```
 
 To not burn my computer, I am also going to create a constant called `RESOLUTION`. This will be used while getting numbers for our flow field. Let's start by filling
@@ -93,8 +94,8 @@ our draw function.
 
 ```ts
 function draw() {
-  for(let x = RESOLUTION / 2; x < width; x += RESOLUTION) {
-    for(let y = RESOLUTION / 2; y < height; y += RESOLUTION) {
+  for (let x = RESOLUTION / 2; x < width; x += RESOLUTION) {
+    for (let y = RESOLUTION / 2; y < height; y += RESOLUTION) {
       const angle = f(x, y);
       line(x, y, x + 10 * cos(angle), y + 10 * sin(angle));
     }
@@ -108,7 +109,7 @@ The full code looks something like this:
 const RESOLUTION = 25;
 
 function f(x, y) {
-  const value = (sin(x)+cos(y)) * 0.5;
+  const value = (sin(x) + cos(y)) * 0.5;
   return map(value, -1, 1, 0, TWO_PI);
 }
 
@@ -119,8 +120,8 @@ function setup() {
 }
 
 function draw() {
-  for(let x = RESOLUTION / 2; x < width; x += RESOLUTION) {
-    for(let y = RESOLUTION / 2; y < height; y += RESOLUTION) {
+  for (let x = RESOLUTION / 2; x < width; x += RESOLUTION) {
+    for (let y = RESOLUTION / 2; y < height; y += RESOLUTION) {
       const angle = f(x, y);
       line(x, y, x + 10 * cos(angle), y + 10 * sin(angle));
     }
@@ -137,16 +138,16 @@ coordinate-system easily.
 
 We are multiplying these conversions by 10 (or any number) to change their length. If we run this code, we should see something like this.
 
-![Parametric flow field](./flow-field-01.png)
+![Parametric flow field](../flow-field-01.png)
 
 Here is another parametric flow field defined by the function $V(x,y)=sin(x*y)$
 
-![Another parametric flow field](./flow-field-04.png)
+![Another parametric flow field](../flow-field-04.png)
 
 ### Non-parametric Flow Field
+
 Non-parametric flow fields can't be expressed as mathematical functions. One example is noise flow fields. In this article, we are going to create a non-parametric flow field using
 noise. Let's start by creating a function that returns a noise value for given x and y.
-
 
 ```ts
 function f(x, y) {
@@ -180,8 +181,8 @@ function setup() {
 }
 
 function draw() {
-  for(let x = RESOLUTION / 2; x < width; x += RESOLUTION) {
-    for(let y = RESOLUTION / 2; y < height; y += RESOLUTION) {
+  for (let x = RESOLUTION / 2; x < width; x += RESOLUTION) {
+    for (let y = RESOLUTION / 2; y < height; y += RESOLUTION) {
       const angle = f(x, y);
       line(x, y, x + 10 * cos(angle), y + 10 * sin(angle));
     }
@@ -191,7 +192,7 @@ function draw() {
 
 If we run this, we should get something chaotic like this:
 
-![Chaotic noise flow field](./flow-field-02.png)
+![Chaotic noise flow field](../flow-field-02.png)
 
 This is because the `noise` function returns values far apart from each other. To fix this issue, we can multiply x and y arguments by a small number to change the 'scale' of the noise.
 
@@ -206,7 +207,7 @@ function f(x, y) {
 
 If we run again, we should see a less chaotic noise flow field, something like below.
 
-![Scaled noise flow field](./flow-field-03.png)
+![Scaled noise flow field](../flow-field-03.png)
 
 It looks like a parametric flow field but every time we re-run the code, we see different output. That is the beauty and generativeness of non-parametric flow fields (especially the noise).
 
@@ -216,6 +217,7 @@ After creating flow fields, we should think about how to visualize them. There a
 lines according to the angle of the flow field. Other ways could be simulating little particles or moving shapes according to the flow fields.
 
 ## Conclusion
+
 So, yeah. I tried my best to explain flow and vector fields.
 
 Hopefully, this article has created something in your mind about flow fields. My advice is to try different things with flow fields. Try to change parameters, try different visualization
