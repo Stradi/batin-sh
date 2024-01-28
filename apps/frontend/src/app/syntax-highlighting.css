@@ -10,18 +10,22 @@ div[data-rehype-pretty-code-fragment] {
   @apply overflow-hidden transition duration-200;
 }
 
+div[data-rehype-pretty-code-fragment]:has([data-rehype-pretty-code-title]) pre {
+  @apply rounded-t-sm;
+}
+
 div[data-rehype-pretty-code-title] {
   @apply mb-0.5 rounded-b-sm rounded-t-xl px-3 py-1 font-mono text-sm border;
   @apply bg-black/10 border-black/20 dark:border-white/20 dark:bg-white/10;
 }
 
 div[data-rehype-pretty-code-fragment] pre {
-  @apply overflow-x-auto py-2 text-sm rounded-xl rounded-t-sm;
+  @apply overflow-x-auto py-2 text-sm rounded-xl;
   @apply border border-black/20 dark:border-white/10 bg-black/5 dark:bg-white/5;
 }
 
 div[data-rehype-pretty-code-fragment] span[data-line] {
-  @apply px-4;
+  @apply px-0;
 }
 
 div[data-rehype-pretty-code-fragment] span[data-highlighted-line] {
