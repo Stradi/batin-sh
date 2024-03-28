@@ -1,14 +1,14 @@
+import type { Metadata } from 'next';
 import BadgeLink from '@/components/badge-link';
 import PostCard from '@/components/post-card';
 import ProjectCard from '@/components/project-card';
 import Section from '@/components/section';
 import { getLatestPosts, getProjectBySlug } from '@/utils/contentlayer';
-import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Batin Evirgen',
   description:
-    "I'm a frontend developer and this is my digital garden. I currently work as React developer at coinpass. In here, you can find my thoughts, projects and learn more about me.",
+    "I'm a frontend developer and this is my digital garden. I currently work as React developer at OANDA. In here, you can find my thoughts, projects and learn more about me.",
 };
 
 export default function Home() {
@@ -18,9 +18,8 @@ export default function Home() {
       <br />
       <p className="leading-loose">
         I&apos;m a frontend developer and this is my{' '}
-        <BadgeLink href="/digital-garden">digital garden</BadgeLink>. I
-        currently work as React.js team leader at{' '}
-        <BadgeLink href="https://www.coinpass.com">coinpass</BadgeLink>. In
+        digital garden. I currently work as React.js team leader at{' '}
+        <BadgeLink href="https://www.oanda.com">OANDA</BadgeLink>. In
         here, you can find my <BadgeLink href="/blog">thoughts</BadgeLink>,{' '}
         <BadgeLink href="/projects">projects</BadgeLink> and learn{' '}
         <BadgeLink href="/about">more about me</BadgeLink>.
@@ -31,7 +30,7 @@ export default function Home() {
         rightSide={<BadgeLink href="/projects">View all</BadgeLink>}
         title="Featured Projects"
       >
-        <ProjectCard project={getProjectBySlug('ultimatecomic')} />
+        <ProjectCard project={getProjectBySlug('fake-sh')} />
         <ProjectCard project={getProjectBySlug('imgflow')} />
       </Section>
       <br />
