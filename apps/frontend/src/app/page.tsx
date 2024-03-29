@@ -18,8 +18,7 @@ export default function Home() {
       <br />
       <p className="leading-loose">
         I&apos;m a frontend developer and this is my{' '}
-        digital garden. I currently work as React.js team leader at{' '}
-        <BadgeLink href="https://www.oanda.com">OANDA</BadgeLink>. In
+        digital garden. I currently work as React.js team leader. In
         here, you can find my <BadgeLink href="/blog">thoughts</BadgeLink>,{' '}
         <BadgeLink href="/projects">projects</BadgeLink> and learn{' '}
         <BadgeLink href="/about">more about me</BadgeLink>.
